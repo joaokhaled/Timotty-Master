@@ -27,40 +27,45 @@ class Th(Thread) :
         if self.msgs.get('message', None) is not None :
             msg = self.msgs['message']
             content_type = 'text'
+            date = msg['date']
+            pprint(msg)
         elif self.msgs.get('edited_message', None) is not None :
             msg = self.msgs['edited_message']
-
+            content_type = 'text'
+            pprint(msg)
         elif self.msgs.get('channel_post', None) is not None :
             msg = self.msgs['channel_post']
-
+            pprint(msg)
         elif self.msgs.get('edited_channel_post', None) is not None :
             msg = self.msgs['edited_channel_post']
-
+            pprint(msg)
         elif self.msgs.get('inline_query', None) is not None :
             msg = self.msgs['inline_query']
-
+            pprint(msg)
         elif self.msgs.get('chosen_inline_result', None) is not None :
             msg = self.msgs['chosen_inline_result']
-
+            pprint(msg)
         elif self.msgs.get('callback_query', None) is not None :
-            msgs = self.msgs['callback_query']
-
+            msg = self.msgs['callback_query']
+            content_type = 'data'
+            pprint(msg)
+            date = msg['message']['date']
         elif self.msgs.get('shipping_query', None) is not None :
             msg = self.msgs['shipping_query']
-
+            pprint(msg)
         elif self.msgs.get('pre_checkout_query', None) is not None :
             msg = self.msgs['pre_checkout_query']
-
+            pprint(msg)
         else :
             return
 
-        if (time.time() - msg['date']) > config.timer :
+        if (time.time() - date) > config.timer :
             return
 
-        if content_type == 'text':
+        if content_type:
             comandos(msg)## importando os comandos para dentro do bot
             return
-
+        
 
 dados_bot = bot.getMe()
 threads = config.th
