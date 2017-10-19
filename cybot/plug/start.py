@@ -16,7 +16,9 @@ def start(msg):
         if texto == '/start':
 
             keyboard = [[{'text': m.start['bot1'], 'url': config.grupo_url}] +
-                        [{'text':m.start['bot2'], 'url': mensagens.creditos['url']}]]
-
+                        [{'text':m.start['bot2'], 'url': mensagens.creditos['url']},
+                        [{'text :m.start['info'], 'callback_data': 'info'}]]
+           
+                          
             markup = make_url(keyboard)
             sendMessage(chat_id, m.start['mensagem'].format(nome), reply_markup=markup)
