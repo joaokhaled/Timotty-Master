@@ -3,7 +3,8 @@
 ## START
 start = {'mensagem':u'Olá {}!\nSou o Timotty.',
             'bot1' : '🎉 Fã Clube ',
-            'bot2' :  '⚙️ Dev'}
+            'bot2' :  '⚙️ Dev',
+            'info' : 'ℹ️ Informações ℹ️'}
 
 ## PROMOVER
 promover = u'Promovido!\n\n✅ Enviados: {}\n🚫️ Blocks: {}\n💬 Mensagem: {}'
