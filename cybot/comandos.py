@@ -50,3 +50,11 @@ def comandos(msg):
             tradutor.traduzir(msg) #modulo de tradução
 
             qr.make_qr(msg) #  modulo co comando /qr
+            
+            
+def on_inline_keyboard(msg)
+    data_msg = msg['data']
+    data_id = (msg['message']['chat']['id'], msg['message']['message_id'])
+    
+    if msg_data == 'info':
+        bot.editMessageText(data_id, 'Texto', reply_markup=keyboard)
